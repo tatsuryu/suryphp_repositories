@@ -1,0 +1,22 @@
+galaxy_info:
+  author: Tatsu Ryu
+  description: Install sury' php repository
+  role_name: suryphp_repositories
+  namespace: tatsuryu
+
+  issue_tracker_url: https://github.com/tatsuryu/suryphp_repositories/issues
+
+  license: MIT
+
+  min_ansible_version: 2.1
+
+  platforms:
+    - name: Fedora
+      versions:
+        - buster
+        - 10
+
+  galaxy_tags:
+    - php
+
+dependencies: []

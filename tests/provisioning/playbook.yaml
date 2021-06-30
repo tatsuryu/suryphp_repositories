@@ -1,0 +1,5 @@
+---
+- name: Sury PHP Repositories Role
+  hosts: all
+  roles:
+    - role: suryphp_repositories

@@ -1,0 +1,18 @@
+---
+# tasks file for suryphp_repositories
+- name: Install dependencies
+  apt:
+    update_cache: true
+    name: "{{ sury_php_dependencies }}"
+
+- name: Add GPG key
+  apt_key:
+    url: "{{ sury_gpg_url }}"
+    state: present
+
+- name: Install repository
+  apt_repository:
+    repo: "{{ lookup('template', 'php.list.j2') }}"
+    state: present
+    filename: php
+    update_cache: true

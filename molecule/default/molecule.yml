@@ -1,0 +1,24 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  yamllint -c molecule/yamllint.yaml .
+  ansible-lint
+  flake8
+platforms:
+  - name: busterphp
+    image: tatsuryu/debian-systemd-molecule:buster
+provisioner:
+  name: ansible
+  playbooks:
+    converge: ../../tests/provisioning/playbook.yaml
+  inventory:
+    stretch_php:
+      ansible_python_interpreter: ansible_silent
+verifier:
+  name: testinfra
+  options:
+    v: true
+  directory: ../../tests
